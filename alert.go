@@ -18,12 +18,13 @@ type AlertService struct {
 
 // AlertRequest represents a request to create an alert.
 type AlertRequest struct {
-	ApiKey  string `json:"apiKey"`
-	Id      string `json:"id,omitempty"`
-	Message string `json:"message,omitempty"`
-	Source  string `json:"source,omitempty"`
-	AlertId string `json:"alertId,omitempty"`
-	Status  string `json:"status,omitempty"`
+	ApiKey      string `json:"apiKey"`
+	Id          string `json:"id,omitempty"`
+	Message     string `json:"message,omitempty"`
+	Description string `json:"description,omitempty"`
+	Source      string `json:"source,omitempty"`
+	AlertId     string `json:"alertId,omitempty"`
+	Status      string `json:"status,omitempty"`
 }
 
 type Alert struct {
@@ -32,6 +33,7 @@ type Alert struct {
 	Alias        string `json:"alias,omitempty"`
 	TinyId       string `json:"tinyId,omitempty"`
 	Message      string `json:"message,omitempty"`
+	Description  string `json:"description,omitempty"`
 	Source       string `json:"source,omitempty"`
 	Status       string `json:"status,omitempty"`
 	Acknowledged bool   `json:"acknowledged,omitempty"`

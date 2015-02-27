@@ -14,7 +14,7 @@ func TestSendAlertWithWrongApiKey(t *testing.T) {
 
 	opsGenie := New("12345-54321-12345-43212")
 
-	alert, err := opsGenie.SendAlert("Problem on PROD")
+	alert, err := opsGenie.SendAlert("Test alert", "This is a generated test alert")
 	if err == nil {
 		t.Errorf("SendAlert should not have been successful")
 	}
@@ -28,7 +28,7 @@ func TestSendRealAlert1(t *testing.T) {
 
 	opsGenie := New(apiKey)
 
-	alert, err := opsGenie.SendAlert("Problem on PROD")
+	alert, err := opsGenie.SendAlert("Test alert", "This is a generated test alert")
 	if err != nil {
 		t.Errorf("SendAlert should have been successful")
 	}
@@ -70,7 +70,7 @@ func TestSendAndAcknowledgeAlert(t *testing.T) {
 
 	opsGenie := New(apiKey)
 
-	alert, err := opsGenie.SendAlert("Problem on PROD")
+	alert, err := opsGenie.SendAlert("Test alert", "This is a generated test alert")
 	if err != nil {
 		t.Errorf("SendAlert should have been successful")
 	}
@@ -122,7 +122,7 @@ func TestAcknowledgeOpenAlerts(t *testing.T) {
 
 	opsGenie := New(apiKey)
 
-	_, err := opsGenie.SendAlert("New Problem on PROD")
+	_, err := opsGenie.SendAlert("Test alert", "This is a generated test alert")
 
 	alertList, err := opsGenie.ListAlerts("unacked")
 

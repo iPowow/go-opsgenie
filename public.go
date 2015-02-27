@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-func (client *Client) SendAlert(msg string) (*Alert, error) {
-	alert, _, err := client.alert.create(&AlertRequest{Message: msg, ApiKey: client.config.apiKey})
+func (client *Client) SendAlert(msg string, description string) (*Alert, error) {
+	alert, _, err := client.alert.create(&AlertRequest{Message: msg, Description: description, ApiKey: client.config.apiKey})
 	if err != nil {
 		fmt.Println("ERROR: failed to create the alert:", err)
 		return nil, err
